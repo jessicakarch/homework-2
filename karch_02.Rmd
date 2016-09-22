@@ -20,7 +20,7 @@ Consider the following vasopressin levels in voles.
 vole_vaso <- c(98,96,94,88,86,82,77,74,70,60,
            59,52,50,47,40,35,29,13,6,5)
 ```
-**1a. Say "Vole vasopressin" 10 times as fast as you can. How many times did you trip up?**
+**1a. Say "Vole vasopressin" 10 times as fast as you can. How many times did you trip up?**  
 Three. But to be fair, I'm not sure I pronounced it correctly at all.
 
 **1b. What is the mean, median, sd, and interquartile range of the sample?**
@@ -92,12 +92,3 @@ The standard error of the upper quartile is the the standard deviation of the es
 11.2748 * 1.96
 ```
 The 95% confidence interval is 22.1. This means we 95% confident that the true value of the upper quartile lies somewhere in the range of the estimated upper quartile value +/- 22.1.  
-
-**3d. Extra Credit: Instead of having each sim calculate a upper quartile, and then sifting down to the SE of that upper quartile (or the CI), have each simulation calculate a CI. Then, for just a sample size of 10, how many CI's contain the true value of 83?**  
-```{r = 3d}
-df_sim2 <- df_sim %>%
-  group_by(sim_number) %>%
-#get simulated upper quartiles
-  mutate(upquart = quantile(rnorm(samp_size),prob = (.75))) %>%
-  ungroup()
-```
